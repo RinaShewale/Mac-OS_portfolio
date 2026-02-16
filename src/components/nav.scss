@@ -1,0 +1,21 @@
+nav {
+    width: 100%;
+    background-color: rgba(77, 75, 75, 0.453);
+    padding-inline: 0.75rem;
+    padding-block: 0.5rem;
+    backdrop-filter: blur(5px);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+
+
+    .left,.right {
+        display: flex;
+     gap: 1rem;
+     align-items: center;
+
+    }
+
+
+
+}

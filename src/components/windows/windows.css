@@ -1,0 +1,43 @@
+.window {
+  height: 100%;
+  background-color: #000000;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  height: 100%;
+}
+.window .nav {
+  width: 100%;
+  padding-inline: 0.75rem;
+  padding-block: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border-bottom: 2px solid rgb(46, 44, 44);
+}
+.window .nav .Mac-dots {
+  display: flex;
+  gap: 0.3rem;
+}
+.window .nav .Mac-dots .dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+.window .nav .Mac-dots .red {
+  background-color: rgb(241, 41, 41);
+}
+.window .nav .Mac-dots .yellow {
+  background-color: rgb(241, 238, 38);
+}
+.window .nav .Mac-dots .green {
+  background-color: rgb(143, 226, 17);
+}
+.window .nav .title p {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgb(172, 175, 177);
+}
+.window .main-content {
+  height: 100%;
+  color: white;
+}/*# sourceMappingURL=windows.css.map */

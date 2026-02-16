@@ -1,0 +1,57 @@
+.window{
+    height: 100%;
+    background-color: #000000;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    height: 100%;
+
+
+    .nav{
+        width: 100%;
+        padding-inline: 0.75rem;
+        padding-block: 0.5rem;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        border-bottom: 2px solid rgb(46, 44, 44);
+
+        .Mac-dots{
+            display: flex;
+            gap: 0.30rem;
+
+
+            .dot{
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+            }
+
+            .red{
+                background-color: rgb(241, 41, 41);
+            }
+
+            .yellow{
+                background-color: rgb(241, 238, 38);
+            }
+
+            .green{
+                background-color: rgb(143, 226, 17);
+            }
+
+        }
+
+        .title p{
+                font-size: 15px;
+                font-weight: 500;
+                color: rgb(172, 175, 177);
+            }
+        }
+
+        .main-content{
+         height: 100%;
+         color: white;
+
+            
+        }
+        
+    }
