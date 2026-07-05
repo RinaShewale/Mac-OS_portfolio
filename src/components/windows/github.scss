@@ -80,3 +80,31 @@
 
 
 }
+
+/* Mobile: single-column card layout */
+@media (max-width: 768px) {
+    .cards {
+        padding: 0.75rem;
+        padding-bottom: 5rem;   // space for the dock
+        gap: 0.75rem;
+
+        .card {
+            flex-basis: 100%;   // full-width on phone
+            max-width: 100%;
+
+            h1 { font-size: 1.1rem; }
+
+            .tags .tag {
+                font-size: 0.8rem;
+                padding-inline: 0.75rem;
+                padding-block: 0.4rem;
+            }
+
+            .url a {
+                font-size: 0.85rem;
+                padding-inline: 0.75rem;
+                padding-block: 0.5rem;
+            }
+        }
+    }
+}

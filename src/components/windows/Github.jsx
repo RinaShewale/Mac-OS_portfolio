@@ -28,10 +28,10 @@ const GithubCards=({data= {id:1, image:"",title:"",tags:[],description:"",repoLi
 
 }
 
-const Github = () => {
+const Github = ({windowName, setWindowState}) => {
       console.log("Github component loaded");
   return (
-   <Macwindows>
+   <Macwindows windowName={windowName} setWindowState={setWindowState}>
       <div className="cards">
         {githubData.map(project=>{
             return <GithubCards key={project.id}  data={project} />

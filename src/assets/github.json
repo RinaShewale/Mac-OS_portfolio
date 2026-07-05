@@ -48,7 +48,7 @@
 {
   "id": 4,
   "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1000",
-  "title": ":Netflix UI clone",
+  "title": "Netflix UI clone",
   "description": "A visually appealing frontend clone inspired by Netflix, built using HTML and CSS. The project focuses on replicating the streaming platform's layout, banner sections, movie rows, and responsive design while maintaining clean styling and structured UI components.",
   "tags": [
     "HTML",
@@ -63,7 +63,7 @@
 {
     "id": 5,
     "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1000",
-    "title": ":Sheryians coding school",
+    "title": "Sheryians coding school",
     "description": "A responsive frontend website inspired by Sheryians Coding School, built using HTML, CSS, and JavaScript. The project focuses on modern UI design, structured layouts, and interactive elements to create an engaging and user-friendly learning platform interface.",
     "tags": [
       "HTML",

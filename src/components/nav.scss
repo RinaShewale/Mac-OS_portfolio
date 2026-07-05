@@ -1,21 +1,135 @@
-nav {
+.os-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    background-color: rgba(77, 75, 75, 0.453);
-    padding-inline: 0.75rem;
-    padding-block: 0.5rem;
-    backdrop-filter: blur(5px);
-    color: white;
+    height: 28px; // Slim professional height
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    z-index: 9999;
+    
+    // Modern Glassmorphism
+    background: rgba(25, 25, 25, 0.35);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+    
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    user-select: none;
 
-
-    .left,.right {
+    .nav-left, .nav-right {
         display: flex;
-     gap: 1rem;
-     align-items: center;
-
+        align-items: center;
+        height: 100%;
     }
 
+    .nav-logo {
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        transition: background 0.2s;
 
+        img {
+            width: 15px;
+            // This turns any color icon to pure white
+            filter: brightness(0) invert(1);
+        }
 
+        &:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+    }
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+
+        .menu-item {
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            cursor: default;
+            transition: background 0.15s ease;
+            border-radius: 4px;
+            margin: 2px 0; // Small gap for the hover pill look
+
+            &.bold {
+                font-weight: 700;
+            }
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+    }
+
+    .nav-right {
+        gap: 12px;
+
+        .status-icons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+
+            .status-icon {
+                height: 15px;
+                width: auto;
+                // Force color to pure white
+                filter: brightness(0) invert(1);
+                opacity: 0.9;
+                
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .nav-clock {
+            padding: 0 8px;
+            // Prevents numbers from shifting/jumping every second
+            font-variant-numeric: tabular-nums; 
+            letter-spacing: 0.2px;
+            cursor: default;
+        }
+    }
+}
+
+/* Mobile adjustments: keep desktop unchanged */
+@media (max-width: 768px) {
+    .os-nav {
+        height: 44px;
+        padding: 0 12px;
+        font-size: 13px;
+
+        .nav-menu {
+            display: none;            // hide verbose menu items
+        }
+
+        .nav-logo img {
+            width: 18px;
+        }
+
+        .nav-right {
+            gap: 8px;
+
+            .status-icons {
+                display: none;        // hide wifi/battery on mobile
+            }
+
+            .nav-clock {
+                font-size: 13px;
+                padding: 0 4px;
+                white-space: nowrap;
+            }
+        }
+    }
 }

@@ -66,3 +66,50 @@
 
 
 }
+
+/* Mobile adjustments: make dock touch-friendly without changing desktop */
+@media (max-width: 768px) {
+    .Dock {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: env(safe-area-inset-bottom, 12px);
+        bottom: max(12px, env(safe-area-inset-bottom));
+        width: calc(100% - 32px);
+        max-width: 420px;
+        padding: 8px 10px;
+        gap: 6px;
+        border-radius: 16px;
+        justify-content: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar { display: none; }
+    }
+
+    .Dock .icon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;   // prevents icons from shrinking below tap target
+        padding: 7px;
+        border-radius: 10px;
+        flex-shrink: 0;
+    }
+
+    .Dock .icon:hover { transform: none; }
+    .Dock .icon:hover+.icon, .Dock .icon:has(+.icon:hover) { transform: none; }
+}
+
+/* Extra-small phones (SE, Galaxy fold closed) */
+@media (max-width: 390px) {
+    .Dock {
+        gap: 4px;
+        padding: 7px 8px;
+    }
+    .Dock .icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        padding: 6px;
+    }
+}

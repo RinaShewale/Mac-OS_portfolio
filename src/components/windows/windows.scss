@@ -1,12 +1,13 @@
-.window{
+.window {
     height: 100%;
     background-color: #000000;
     border-radius: 0.3rem;
     overflow: hidden;
-    height: 100%;
+    display: flex;
+    flex-direction: column; // Ensures content fills space below nav
+    border: 1px solid rgb(46, 44, 44);
 
-
-    .nav{
+    .nav {
         width: 100%;
         padding-inline: 0.75rem;
         padding-block: 0.5rem;
@@ -14,44 +15,80 @@
         gap: 0.5rem;
         align-items: center;
         border-bottom: 2px solid rgb(46, 44, 44);
+        flex-shrink: 0; // Prevents nav from shrinking
 
-        .Mac-dots{
+        .Mac-dots {
             display: flex;
             gap: 0.30rem;
 
-
-            .dot{
-                width: 15px;
-                height: 15px;
+            .dot {
+                width: 12px; // Slightly smaller for better fit
+                height: 12px;
                 border-radius: 50%;
+                cursor: pointer;
             }
 
-            .red{
-                background-color: rgb(241, 41, 41);
-            }
-
-            .yellow{
-                background-color: rgb(241, 238, 38);
-            }
-
-            .green{
-                background-color: rgb(143, 226, 17);
-            }
-
+            .red { background-color: rgb(241, 41, 41); }
+            .yellow { background-color: rgb(241, 238, 38); }
+            .green { background-color: rgb(143, 226, 17); }
         }
 
-        .title p{
-                font-size: 15px;
-                font-weight: 500;
-                color: rgb(172, 175, 177);
-            }
+        .title p {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgb(172, 175, 177);
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-
-        .main-content{
-         height: 100%;
-         color: white;
-
-            
-        }
-        
     }
+
+    .main-content {
+        flex-grow: 1; // Fills the rest of the window
+        color: white;
+        overflow-y: auto; // Vertical scroll
+        overflow-x: hidden;
+        padding: 1rem;
+    }
+
+    /* Scrollbar Styling */
+    &::-webkit-scrollbar, *::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb {
+        background-color: #555454;
+        border-radius: 1rem;
+    }
+}
+
+// Mobile View Adjustments
+@media (max-width: 768px) {
+    .mobile-window-wrapper {
+        position: fixed;
+        top: 44px;                          // sits below the nav bar
+        left: 0;
+        width: 100vw;
+        height: calc(100vh - 44px);         // fills remaining screen
+        z-index: 999;
+        
+        .window {
+            border-radius: 0;               // Full screen looks better without radius
+            border: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        .nav {
+            padding-block: 0.75rem;         // Larger touch targets for mobile
+            justify-content: center;        // Center title on mobile
+            position: relative;
+
+            .Mac-dots {
+                position: absolute;
+                left: 12px;
+            }
+        }
+    }
+}

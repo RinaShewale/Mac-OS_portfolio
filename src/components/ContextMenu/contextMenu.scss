@@ -1,0 +1,44 @@
+.context-menu{
+  position: absolute;
+  background: rgba(15,15,15,0.92);
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  min-width: 240px;
+  z-index: 9999;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  font-size: 15px;
+  font-weight: 600;
+}
+.menu-list{ display:flex; flex-direction:column; gap:6px }
+.menu-item{ padding:10px 12px; cursor:pointer; border-radius:8px; transition: all 140ms ease }
+.menu-item:hover{ transform: translateY(-2px); background: rgba(255,255,255,0.03) }
+.menu-item.small{ font-weight:500; font-size:13px }
+.picker{ display:flex; flex-direction:column; gap:8px }
+.picker-row{ display:flex; gap:8px; align-items:center }
+.picker-row input[type="file"]{ color: #fff }
+.picker-row input[type="text"], .picker-row input{ flex:1; padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); color: #fff }
+.picker-row button{ padding:8px 12px; border-radius:8px; background:#1877f2; color:#fff; border:none; cursor:pointer }
+.thumbs img{ width:80px; height:56px; object-fit:cover; border-radius:8px; cursor:pointer; transition: transform 140ms ease, box-shadow 140ms ease }
+.thumbs img:hover{ transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.45) }
+.thumbs img + img{ margin-left:10px }
+
+/* Mobile-specific adjustments: keep desktop unchanged */
+@media (max-width: 600px) {
+  .context-menu{
+    position: fixed !important;
+    left: 50% !important;
+    top: auto !important;
+    bottom: 20px !important;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    min-width: unset;
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .menu-list{ gap:8px }
+  .menu-item{ padding:14px 12px; border-radius:10px }
+  .menu-item.small{ font-size:14px }
+}

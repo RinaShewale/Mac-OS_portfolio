@@ -1,0 +1,29 @@
+.note-window {
+    padding: 1rem;
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 10rem;
+
+    font-size: 1.1rem;
+
+
+    pre {
+        background-color: transparent !important;
+        overflow-x: auto;
+
+        white-space: pre-wrap !important;
+        word-break: break-word;
+
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+
+
+    }
+
+}

@@ -1,60 +1,61 @@
-import React, { useEffect, useState } from 'react'
-import "./nav.scss"
+import React, { useEffect, useState } from 'react';
+import "./nav.scss";
 
 const Nav = () => {
-
     const [dateTime, setDateTime] = useState("");
 
     useEffect(() => {
         const updateTime = () => {
             const now = new Date();
-
-            let formatted = now.toLocaleString("en-US", {
+            // Using Intl.DateTimeFormat for a cleaner, stable string
+            const formatter = new Intl.DateTimeFormat("en-US", {
                 weekday: "short",
                 month: "short",
                 day: "numeric",
                 hour: "numeric",
                 minute: "2-digit",
-                hour12: true
+                hour12: true,
             });
-
-            formatted = formatted.replace(/,/g, ""); // remove commas
-
- setDateTime(formatted);
+            
+            // Format and remove the comma between date and time
+            setDateTime(formatter.format(now).replace(",", ""));
         };
 
         updateTime();
         const interval = setInterval(updateTime, 1000);
-
         return () => clearInterval(interval);
     }, []);
+
+    // Menu items array makes the code DRY (Don't Repeat Yourself)
+    const menuItems = ["Rina Shewale", "File", "Edit", "View", "Window", "Help"];
+
     return (
-        <nav>
-            <div className="left">
-                <div className="apple-icon"><img src="./Nav-icons/apple.svg" alt="" /></div>
-
-                <div className="Nav-items">
-                    <p>Rina Shewale</p>
+        <nav className="os-nav">
+            <div className="nav-left">
+                <div className="nav-logo">
+                    <img src="./Nav-icons/apple.svg" alt="system-logo" />
                 </div>
-                <div className="Nav-items">
-                    <p>File</p>
-                </div>
-                <div className="Nav-items">
-                    <p>Windows</p>
-                </div>
-                <div className="Nav-items">
-                    <p>Terminal</p>
-                </div>
+                
+                <ul className="nav-menu">
+                    {menuItems.map((item, index) => (
+                        <li key={item} className={index === 0 ? "menu-item bold" : "menu-item"}>
+                            {item}
+                        </li>
+                    ))}
+                </ul>
             </div>
-            <div className="right">
-                <div className="apple-icon"><img src="./Nav-icons/wifi.svg" alt="" /></div>
-                <div className="Nav-items">
-                    <p>{dateTime}</p>
-                </div>
 
+            <div className="nav-right">
+                <div className="status-icons">
+                    <img src="./Nav-icons/wifi.svg" alt="wifi" className="status-icon" />
+                    <img src="./Nav-icons/battery.png" alt="battery" className="status-icon" />
+                </div>
+                <div className="nav-clock">
+                    {dateTime}
+                </div>
             </div>
         </nav>
-    )
-}
+    );
+};
 
-export default Nav
+export default Nav;

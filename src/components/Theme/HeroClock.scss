@@ -1,0 +1,52 @@
+.hero-section {
+  margin-top: 10vh;
+  text-align: center;
+  user-select: none;
+
+  .main-day {
+    font-size: 120px;
+    font-weight: 200;
+    letter-spacing: 40px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0,0,0,0.3);
+  }
+
+  .sub-date {
+    font-size: 24px;
+    letter-spacing: 8px;
+    opacity: 0.9;
+  }
+
+  .sub-time {
+    margin-top: 30px;
+    font-size: 18px;
+    letter-spacing: 4px;
+    opacity: 0.8;
+  }
+
+}
+
+/* Mobile adjustments: scale down hero clock for smaller screens */
+@media (max-width: 768px) {
+  .hero-section {
+    margin-top: 7vh;
+    padding: 0 16px;
+
+    .main-day {
+      font-size: 13vw;       // scales with screen width (≈ 50px on 390px iPhone)
+      letter-spacing: 6px;
+      margin-bottom: 6px;
+    }
+
+    .sub-date {
+      font-size: 13px;
+      letter-spacing: 3px;  // reduced so text doesn't overflow
+    }
+
+    .sub-time {
+      font-size: 13px;
+      letter-spacing: 2px;
+      margin-top: 8px;
+    }
+  }
+}
